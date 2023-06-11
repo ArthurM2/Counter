@@ -23,22 +23,56 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZG-m8-gJ3">
-                                <rect key="frame" x="16" y="553" width="361" height="97"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J85-vg-v5x" userLabel="Increment Button">
+                                <rect key="frame" x="307" y="471" width="70" height="104"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Click me😋"/>
+                                <buttonConfiguration key="configuration" style="plain" title="+">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="75"/>
+                                </buttonConfiguration>
                                 <connections>
-                                    <action selector="didButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XIM-do-Mj8"/>
+                                    <action selector="didIncrementButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WeH-TP-IyJ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fXe-Qd-aff" userLabel="Decrement Button">
+                                <rect key="frame" x="16" y="471" width="57" height="104"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="-">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="75"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="didDecrementButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mvh-HC-9hy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rsN-2N-cVa">
+                                <rect key="frame" x="26" y="78" width="47" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrow.counterclockwise" catalog="system"/>
+                                <connections>
+                                    <action selector="resetCounterButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9H9-R8-IWg"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dx8-uy-a0C">
+                                <rect key="frame" x="16" y="583" width="361" height="235"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="counterButton" destination="tZG-m8-gJ3" id="43s-xf-3iK"/>
                         <outlet property="counterLabel" destination="IDi-dh-WBI" id="uKZ-UG-ljj"/>
+                        <outlet property="decrementButton" destination="fXe-Qd-aff" id="Mlm-jR-d3S"/>
+                        <outlet property="incrementButton" destination="J85-vg-v5x" id="70x-Kg-6Mw"/>
+                        <outlet property="infoTextView" destination="dx8-uy-a0C" id="jsE-ka-hUK"/>
+                        <outlet property="restartButton" destination="rsN-2N-cVa" id="WWf-5r-eeO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -47,8 +81,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.counterclockwise" catalog="system" width="113" height="128"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
