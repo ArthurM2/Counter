@@ -8,12 +8,22 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var counterLabel: UILabel!
+    @IBOutlet weak var counterButton: UIButton!
+    
+    var count = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func didButtonTap(_ sender: Any) {
+        count += 1
+        counterLabel.text = "\(count)"
+        print("You tapped on button \(count) times")
+        
+    }
+    
 }
 
