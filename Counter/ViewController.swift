@@ -16,7 +16,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var infoTextView: UITextView!
     
     var count = 0
-    let date = Date().formatted(date: .abbreviated, time: .standard)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,24 +27,25 @@ class ViewController: UIViewController {
     @IBAction func didIncrementButton(_ sender: Any) {
         count += 1
         counterLabel.text = "\(count)"
-        infoTextView.text += "[\(date)]: +1\n"
+        infoTextView.text += "[\(Date().formatted(date: .abbreviated, time: .standard))]: +1\n"
     }
     
     @IBAction func resetCounterButton(_ sender: Any) {
         count = 0
         counterLabel.text = "\(count)"
-        infoTextView.text += "[\(date)]: значение сброшено \n"
+        infoTextView.text += "[\(Date().formatted(date: .abbreviated, time: .standard))]: значение сброшено \n"
     }
     
     @IBAction func didDecrementButton(_ sender: Any) {
-        count -= 1
-
         if count <= 0 {
             count = 0
-            infoTextView.text += "[\(date)]: попытка уменьшить значение счётчика ниже 0\n"
+            infoTextView.text += "[\(Date().formatted(date: .abbreviated, time: .standard))]: попытка уменьшить значение счётчика ниже 0\n"
+        } else {
+            count -= 1
+            counterLabel.text = "\(count)"
+            infoTextView.text += "[\(Date().formatted(date: .abbreviated, time: .standard))]: -1\n"
         }
-        counterLabel.text = "\(count)"
-        infoTextView.text += "[\(date)]: -1\n"
+
     }
 }
 
